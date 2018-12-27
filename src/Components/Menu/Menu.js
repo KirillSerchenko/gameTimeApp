@@ -57,7 +57,7 @@ passToScreen=(num)=>{
         this.props.history.push("/List");
         break;
    default:
-        this.props.history.push("/");
+        this.props.history.push("/Menu");
         break;
         }  
 }
@@ -67,6 +67,7 @@ passToScreen=(num)=>{
     return (
       <div id="container">  
           <Backdrop mainstate={this.props.mainstate} setSt={this.props.setSt}/>
+          
           <PageHeader className="tracking-in-expand-fwd-top"
            style={{
              fontFamily: "'Alfa Slab One', cursive",
