@@ -5,3 +5,8 @@
     margin:auto;
     
 }
+
+#inputT:focus{
+    transform: scale(1.1)
+}
+

@@ -19,7 +19,8 @@ class App extends Component {
    textOfBackdrop:"",//text of backdrop to put correct text according operation.
    signedIn:false,
    isAuth:false,
-   users:[]
+   users:[],
+   isRegistered:false
   }
 
  
@@ -31,7 +32,15 @@ class App extends Component {
           {/*I am pass main state to every component and set state func to update the state continued we need to refactor this with using Redux!!!! */}
     <Switch>
         <Route exact path='/'
-          render={()=><Register  mainstate={this.state} setSt={(element)=>this.setState(element)}/>}/>
+          render=
+          {()=>{
+            if(this.state.isAuth)
+                return <Menu  mainstate={this.state} setSt={(element)=>this.setState(element)}/>
+            if(this.state.isRegistered)
+                return <Login  mainstate={this.state}  setSt={(element)=>this.setState(element)} />
+            else 
+                return <Register  mainstate={this.state} setSt={(element)=>this.setState(element)}/>}}/>
+          
          <Route exact path='/Menu' 
           render={()=>this.state.isAuth?<Menu  mainstate={this.state} setSt={(element)=>this.setState(element)} />:<Register  mainstate={this.state}  setSt={(element)=>this.setState(element)} />}/>
         <Route exact path='/AddPlayer'

@@ -20,7 +20,7 @@ const Backdrop = props =>
          <span style={{
            position:"relative",
            top:"40%",
-           width:"40%",
+           width:"80%",
            color:"green",
            fontWeight:"bold"}}>
            {props.mainstate.textOfBackdrop}
