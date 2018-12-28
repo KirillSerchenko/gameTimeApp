@@ -21,7 +21,7 @@ import { withRouter } from "react-router-dom";
     let temp=[...this.props.mainstate.players]
     this.props.mainstate.players=[...temp.filter(player=>player.value!==value.split(" ").join(""))]
     this.props.setSt({ backdropVisibility:"visible",textOfBackdrop:"Succefully removed player!"})
-    this.props.history.push('/')
+    this.props.history.push('/Menu')
   }
   
   

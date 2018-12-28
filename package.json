@@ -1,28 +1,27 @@
-{ 
+{
   "name": "game_time",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "guestbell-forms": "^2.0.39",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "react-star-rating-component": "^1.4.1"
+    "react-star-rating-component": "^1.4.1",
+    "react-textarea-autosize": "^7.1.0"
   },
-
-  "scripts":{
+  "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
-  "eslintConfig":{
+  "eslintConfig": {
     "extends": "react-app"
   },
-
-  "browserslist":[
+  "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",

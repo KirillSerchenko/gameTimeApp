@@ -44,7 +44,7 @@ let tempPlayers=[...this.props.mainstate.players]
 //Update object's name property.
 tempPlayers[objIndex]={value:this.state.value2,rating:this.state.value3}
 this.props.setSt({ backdropVisibility:"visible",textOfBackdrop:"Successfully edited player!",players:[... tempPlayers]})
-this.props.history.push('/');//Pass to home screen 
+this.props.history.push('/Menu');//Pass to home screen 
 }
 //---------------------------------------------------------------------------------
 

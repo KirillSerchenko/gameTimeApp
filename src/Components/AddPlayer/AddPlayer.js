@@ -27,7 +27,7 @@ class AddPlayer extends Component {
     let temp=this.props.mainstate.players
     temp.push({value,rating})
     this.props.setSt({ backdropVisibility:"visible",textOfBackdrop:"Successfully added new player!",players:[...temp]})
-    this.props.history.push('/')//Pass to Home screen page    
+    this.props.history.push('/Menu')//Pass to Home screen page    
   }  
   /*-----------------------------------END------------------------------------------------*/
    

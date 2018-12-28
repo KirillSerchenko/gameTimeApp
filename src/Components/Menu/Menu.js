@@ -4,7 +4,7 @@ import { withRouter} from "react-router-dom";
 import Backdrop from './Backdrop'
 //Import Images for ball and soccerPlayer
 import ball from '../../Icons/ball_ico.png'
-
+import green from '../../Icons/green.png'
 //---------------CSS Menu Import---------------------------------------
 import '../Menu/Menu.css'
 
@@ -57,7 +57,7 @@ passToScreen=(num)=>{
         this.props.history.push("/List");
         break;
    default:
-        this.props.history.push("/");
+        this.props.history.push("/Menu");
         break;
         }  
 }
@@ -67,11 +67,13 @@ passToScreen=(num)=>{
     return (
       <div id="container">  
           <Backdrop mainstate={this.props.mainstate} setSt={this.props.setSt}/>
+          
           <PageHeader className="tracking-in-expand-fwd-top"
            style={{
              fontFamily: "'Alfa Slab One', cursive",
              color:"green",
              textShadow:"2px 2px lightgreen"}}>
+              <Image src={green} style={{float:"right"}}/>
              Menu
           </PageHeader> 
 
