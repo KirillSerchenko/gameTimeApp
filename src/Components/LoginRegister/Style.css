@@ -1,12 +1,8 @@
-#RegisterForm,#LoginForm{
-    color:white;
-    width:90%;
+#LoginForm,
+#RegisterForm {
+    color: white;
+    width: 90%;
     text-align: left;
-    margin:auto;
-    
-}
+    margin: auto;
 
-#inputT:focus{
-    transform: scale(1.1)
 }
-
