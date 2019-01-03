@@ -66,7 +66,7 @@ export default class Login extends Component {
                         <Col componentClass={ControlLabel} sm={2}></Col>
                         <Col sm={8}>
                             <FormControl
-                                id="inputT"
+                                id="inputLUsername"
                                 type="text"
                                 autoFocus
                                 placeholder="Enter Username"
@@ -79,7 +79,7 @@ export default class Login extends Component {
                         <Col componentClass={ControlLabel} sm={2}></Col>
                         <Col sm={8}>
                             <FormControl
-                                id="inputT"
+                                id="inputLPassword"
                                 type="password"
                                 placeholder="Password"
                                 value={this.state.PasswordValue}

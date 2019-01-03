@@ -9,8 +9,8 @@ import StartGame from './StartGame/StartGame'
 import MakeTeams from './MakeTeams/MakeTeams'
 import Login from './LoginRegister/Login'
 import Register from './LoginRegister/Register'
-import {withRouter} from 'react-router-dom'
-import {Switch, Route} from 'react-router-dom' //import route components from library react-router-dom
+import {withRouter,Switch, Route} from 'react-router-dom'
+
 
 
 class App extends Component {
