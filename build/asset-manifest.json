@@ -1,15 +1,15 @@
 {
-  "main.css": "/static/css/main.0207f1c4.chunk.css",
-  "main.js": "/static/js/main.6cbedfb6.chunk.js",
-  "main.js.map": "/static/js/main.6cbedfb6.chunk.js.map",
-  "static/js/1.98b729c0.chunk.js": "/static/js/1.98b729c0.chunk.js",
-  "static/js/1.98b729c0.chunk.js.map": "/static/js/1.98b729c0.chunk.js.map",
+  "main.css": "/static/css/main.7aa538c7.chunk.css",
+  "main.js": "/static/js/main.6c0eb736.chunk.js",
+  "main.js.map": "/static/js/main.6c0eb736.chunk.js.map",
+  "static/js/1.16f25c24.chunk.js": "/static/js/1.16f25c24.chunk.js",
+  "static/js/1.16f25c24.chunk.js.map": "/static/js/1.16f25c24.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.0207f1c4.chunk.css.map": "/static/css/main.0207f1c4.chunk.css.map",
+  "static/css/main.7aa538c7.chunk.css.map": "/static/css/main.7aa538c7.chunk.css.map",
   "static/media/soccerPlayer.gif": "/static/media/soccerPlayer.f21faa2e.gif",
   "static/media/index.css": "/static/media/Stadium.1c77643d.jpg",
   "index.html": "/index.html",
-  "precache-manifest.82d79eaee38a1e54772872bc16b52ad5.js": "/precache-manifest.82d79eaee38a1e54772872bc16b52ad5.js",
+  "precache-manifest.b222dbaffb7749d28b2ca1897e322409.js": "/precache-manifest.b222dbaffb7749d28b2ca1897e322409.js",
   "service-worker.js": "/service-worker.js"
 }

@@ -152,7 +152,7 @@ class Register extends Component {
                             }}>Register</Button>
                         </Col>
                     </FormGroup>
-                </Form>;
+                </Form>
             </div>
         )
     }
