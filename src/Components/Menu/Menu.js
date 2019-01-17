@@ -127,7 +127,7 @@ class Menu extends Component {
                             style={{
                             float: "left"
                         }}
-                            class="fas fa-user-plus">
+                            className="fas fa-user-plus">
                             &nbsp;Add Player</i>
                     </Button>
                     <Image
@@ -148,7 +148,7 @@ class Menu extends Component {
                             style={{
                             float: "left"
                         }}
-                            class="fas fa-user-minus">
+                            className="fas fa-user-minus">
                             &nbsp;Remove Player</i>
                     </Button>
                     <Image
@@ -169,7 +169,7 @@ class Menu extends Component {
                             style={{
                             float: "left"
                         }}
-                            class="fas fa-user-edit">
+                            className="fas fa-user-edit">
                             &nbsp;Edit Player</i>
                     </Button>
                     <Image
@@ -190,7 +190,7 @@ class Menu extends Component {
                             style={{
                             float: "left"
                         }}
-                            class="fas fa-credit-card">
+                            className="fas fa-credit-card">
                             &nbsp;Payment</i>
                     </Button>
                     <Image
@@ -211,7 +211,7 @@ class Menu extends Component {
                             style={{
                             float: "left"
                         }}
-                            class="fas fa-futbol">
+                            className="fas fa-futbol">
                             &nbsp;Start Game</i>
                     </Button>
                     <Image
@@ -225,7 +225,6 @@ class Menu extends Component {
                     }}/>
                     <Button
                         onClick={() => this.passToScreen(5)}
-                        on
                         onMouseLeave={this.hideIcon}
                         onMouseEnter={() => this.showIcon(5)}
                         bsStyle="success">
@@ -233,7 +232,7 @@ class Menu extends Component {
                             style={{
                             float: "left"
                         }}
-                            class="fas fa-users">
+                            className="fas fa-users">
                             &nbsp;Make Teams</i>
                     </Button>
                     <Image
@@ -247,11 +246,10 @@ class Menu extends Component {
                     }}/>
                     <Button
                         onClick={() => this.passToScreen(6)}
-                        on
                         onMouseLeave={this.hideIcon}
                         onMouseEnter={() => this.showIcon(6)}
                         bsStyle="success">
-                        <i class="fas fa-clipboard-list">
+                        <i className="fas fa-clipboard-list">
                             &nbsp;List of Players</i>
                     </Button>
                     <Image

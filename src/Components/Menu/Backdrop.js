@@ -37,6 +37,7 @@ const Backdrop = props => (
             <img
                 src={soccerPlayer}
                 id="soccerPlayer"
+                alt="soccerPlayer"
                 style={{
                 position: "absolute",
                 top: "5%",

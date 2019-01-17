@@ -19,9 +19,32 @@ class AddPlayer extends Component {
     /*-----------------------Change value of stars rating----------------*/
     onStarClick = (nextValue) => this.setState({rating: nextValue});
     /*-----------------------END----------------*/
+    postDataOnServer =(value,rating) => {
+        let url = 'http://localhost:3000/players';
+        let data = {
+            id:0,
+            value,
+            rating
+        }
+
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            body: JSON.stringify(data), // data can be `string` or {object}!
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .then(response => console.log('Success:', JSON.stringify(response)))
+            .catch(error => console.error('Error:', error));
+    }
+
+    
+
 
     /*------------------------Add New Player when the user clicked on add button-----------*/
     addClicked = (value, rating) => {
+        this.postDataOnServer(value,rating)
         let temp = this.props.mainstate.players
         temp.push({value, rating})
         this
@@ -87,7 +110,7 @@ class AddPlayer extends Component {
                     disabled={this.state.value === "".slice(" ")
                     ? true
                     : false}>
-                    <i class="fas fa-plus">&nbsp; Add</i>
+                    <i className="fas fa-plus">&nbsp; Add</i>
                 </Button>
                 {/*-----END Button------------------------------------------------------------------------*/}
 

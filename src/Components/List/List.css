@@ -5,7 +5,8 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     opacity: 0.8;
     width: 90%;
-    transition: opacity 1s ease-out,width 1s ease-out,text-align 1s ease-in;
+    transition: opacity 1s ease-out,width 1s ease-out,text-align 1s ease-in-out,
+    background-color 0.5s ease-in,color 0.5s ease-in;
 
 }
 #playerItem:hover {
@@ -13,6 +14,8 @@
     width: 97%;
     text-align: center;
     cursor: default;
+    background-color: red;
+    color:white;
 
 }
 #playersList {

@@ -11,41 +11,7 @@ export default class MakeTeams extends Component {
         players5: []
     }
 
-    componentDidMount() {
-        let players1 = []
-        let players2 = []
-        let players3 = []
-        let players4 = []
-        let players5 = []
-        this
-            .props
-            .mainstate
-            .players
-            .map(player => {
-                switch (player.rating) {
-                    case 1:
-                        players1.push(player)
-                        break;
-                    case 2:
-                        players2.push(player)
-                        break;
-                    case 3:
-                        players3.push(player)
-                        break;
-                    case 4:
-                        players4.push(player)
-                        break;
-                    case 5:
-                        players5.push(player)
-                        break;
-                    default:
-                        break;
-                }
-            })
-        this.setState({
-            players1: [...players1]
-        })
-    }
+   
 
     render() {
 

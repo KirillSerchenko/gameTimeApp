@@ -9,9 +9,7 @@ import StartGame from './StartGame/StartGame'
 import MakeTeams from './MakeTeams/MakeTeams'
 import Login from './LoginRegister/Login'
 import Register from './LoginRegister/Register'
-import {withRouter,Switch, Route} from 'react-router-dom'
-
-
+import {withRouter, Switch, Route} from 'react-router-dom'
 
 class App extends Component {
 
@@ -24,16 +22,26 @@ class App extends Component {
         users: [],
         isRegistered: false
     }
-    
 
+   async getData(){
+    const response = await fetch('http://localhost:3000/players');
+    const json = await response.json();
+    this.setState({players:json})
+    console.log(json)
+   }
     // -------------------------------Render
     // function------------------------------------------------------
+    componentDidMount(){
+        this.getData()
+        //this.setState(json);
+    }
+    
     render() {
-      
+
         return (
             <div>
-            {/*Route switch for pass to match screen*/}
-            {/*I am pass main state to every component and set state func to update the state continued we need to refactor this with using Redux!!!! */}
+                {/*Route switch for pass to match screen*/}
+                {/*I am pass main state to every component and set state func to update the state continued we need to refactor this with using Redux!!!! */}
                 <Switch >
                     <Route
                         exact
@@ -42,13 +50,6 @@ class App extends Component {
                         {()=>{ if(this.state.isAuth) return <Menu mainstate={this.state} setSt={(element)=>this.setState(element)}/> 
                         if(this.state.isRegistered) return <Login mainstate={this.state} setSt={(element)=>this.setState(element)} /> 
                         else return <Register mainstate={this.state} setSt={(element)=>this.setState(element)}/>}}/>
-
-                     {/* <Route
-                        exact
-                        path='/Menu'
-                        render={() => this.state.isAuth
-                        ? <Menu mainstate={this.state} setSt={(element) => this.setState(element)}/>
-                        : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>  */}
 
                     <Route
                         exact
@@ -95,7 +96,9 @@ class App extends Component {
                         ? <List mainstate={this.state}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
                 </Switch>
-        </div>)}}
-
+            </div>
+        )
+    }
+}
 
 export default withRouter(App);

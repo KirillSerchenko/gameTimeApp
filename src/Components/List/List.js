@@ -15,7 +15,7 @@ render(){
 const props=this.props;
 let sortedArray;
 
-this.state.sortBy=="Name"?sortedArray=props.mainstate.players.sort((playerA,playerB)=>playerA.value>playerB.value)
+this.state.sortBy==="Name"?sortedArray=props.mainstate.players.sort((playerA,playerB)=>playerA.value>playerB.value)
 :sortedArray=props.mainstate.players.sort((playerA,playerB)=>playerA.rating-playerB.rating)
 
 

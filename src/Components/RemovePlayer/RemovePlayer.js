@@ -29,6 +29,9 @@ class RemovePlayer extends Component {
         })
     }
 
+   
+    
+
     removeClicked = (value) => {
         let temp = [...this.props.mainstate.players]
         this.props.mainstate.players = [...temp.filter(player => player.value !== value.split(" ").join(""))]
@@ -68,7 +71,7 @@ class RemovePlayer extends Component {
                     bsStyle="primary"
                     type='submit'
                     disabled={!this.state.allow}>
-                    <i class="fas fa-minus">&nbsp; Remove</i>
+                    <i className="fas fa-minus">&nbsp; Remove</i>
                 </Button>
             </div>
         )

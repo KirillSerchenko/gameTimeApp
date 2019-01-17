@@ -1,0 +1,19 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "value": "aaaa",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "value": "qqqqq",
+      "rating": 2
+    },
+    {
+      "id": 3,
+      "value": "aaaaaa",
+      "rating": 2
+    }
+  ]
+}

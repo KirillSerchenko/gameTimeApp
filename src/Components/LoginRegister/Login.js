@@ -34,7 +34,7 @@ export default class Login extends Component {
     //------------------------------------------------------------------------------
     //---------- fires when button clicked
     signinHandler = () => {
-        if (this.state.CheckBoxValue == true) { //Set item to local storage if clicked remember me
+        if (this.state.CheckBoxValue === true) { //Set item to local storage if clicked remember me
             localStorage.setItem(`Users`, JSON.stringify({Username: this.state.NameValue, Password: this.state.PasswordValue}))
             this
                 .props
@@ -62,7 +62,7 @@ export default class Login extends Component {
                 {/*---------------------------Form--------------------------------------------------------*/}
                 <Form id="RegisterForm" horizontal>
                     {/*---------------------------UserName--------------------------------------------------------*/}
-                    <FormGroup controlId="formHorizontalName">
+                    <FormGroup >
                         <Col componentClass={ControlLabel} sm={2}></Col>
                         <Col sm={8}>
                             <FormControl
@@ -75,7 +75,7 @@ export default class Login extends Component {
                         </Col>
                     </FormGroup>
                     {/*---------------------------Password--------------------------------------------------------*/}
-                    <FormGroup controlId="formHorizontalPassword">
+                    <FormGroup >
                         <Col componentClass={ControlLabel} sm={2}></Col>
                         <Col sm={8}>
                             <FormControl
@@ -100,13 +100,13 @@ export default class Login extends Component {
                                 .props
                                 .mainstate
                                 .users
-                                .some(user => user.Username == this.state.NameValue && user.Password == this.state.PasswordValue)
+                                .some(user => user.Username === this.state.NameValue && user.Password === this.state.PasswordValue)
                                 ? "jello-diagonal-2"
                                 : null}
                                 type="submit"
                                 bsStyle="primary"
                                 onClick={this.signinHandler}
-                                disabled={!(this.props.mainstate.users.some(user => user.Username == this.state.NameValue && user.Password == this.state.PasswordValue))}>Sign in</Button>
+                                disabled={!(this.props.mainstate.users.some(user => user.Username === this.state.NameValue && user.Password === this.state.PasswordValue))}>Sign in</Button>
                         </Col>
                     </FormGroup>
                 </Form>

@@ -19,9 +19,9 @@ class Register extends Component {
         EmailValue: "", //Email value
         PasswordValue: "", //Password value
         NameValue: "", //Username value
-        validationStateEmail:"",
+        validationStateEmail:null,
         emailHelpBlock:"Enter email please",
-        validationStatePassword:""
+        validationStatePassword:null
     }
 
 
@@ -73,11 +73,11 @@ class Register extends Component {
 
     //check validation!
     emptyChecks = () => {
-        if (this.state.NameValue.trim(" ") == ""
-          || this.state.EmailValue.trim(" ") == ""
-          || this.state.PasswordValue.trim(" ") == ""
-          ||this.state.validationStateEmail=="error"
-          ||this.state.validationStatePassword=="error") 
+        if (this.state.NameValue.trim(" ") === ""
+          || this.state.EmailValue.trim(" ") === ""
+          || this.state.PasswordValue.trim(" ") === ""
+          ||this.state.validationStateEmail==="error"
+          ||this.state.validationStatePassword==="error") 
             return true
     }
 
@@ -97,7 +97,7 @@ class Register extends Component {
 
                 <Form id="RegisterForm" horizontal>
 
-                    <FormGroup controlId="formHorizontalName">
+                    <FormGroup >
                         <Col componentClass={ControlLabel} sm={2}></Col>
                         <Col sm={8}>
                             <FormControl
@@ -110,7 +110,7 @@ class Register extends Component {
                         </Col>
                     </FormGroup>
 
-                    <FormGroup controlId="formHorizontalEmail" validationState={this.state.validationStateEmail}>
+                    <FormGroup validationState={this.state.validationStateEmail}>
                         <Col componentClass={ControlLabel} sm={2}></Col>
                         <Col sm={8}>
                             <FormControl
@@ -119,11 +119,11 @@ class Register extends Component {
                                 placeholder="Email"
                                 value={this.state.EmailValue}
                                 onChange={(e) => this.EmailhandleChange(e)}/>
-                                <HelpBlock>{this.state.validationStateEmail=="error"?"Enter correct email please":null}</HelpBlock>
+                                <HelpBlock>{this.state.validationStateEmail==="error"?"Enter correct email please":null}</HelpBlock>
                         </Col>
                     </FormGroup>
 
-                    <FormGroup controlId="formHorizontalPassword"  validationState={this.state.validationStatePassword}>
+                    <FormGroup   validationState={this.state.validationStatePassword}>
                         <Col componentClass={ControlLabel} sm={2}></Col>
                         <Col sm={8}>
                             <FormControl
@@ -134,7 +134,7 @@ class Register extends Component {
                                 onChange={(e) => this.PasswordhandleChange(e)}
                                />
                                  <HelpBlock>
-                                 {this.state.validationStatePassword=="error"?"At least 8 characters  must contain at least 1 uppercase letter,1 lowercase letter,and 1 number":null}
+                                 {this.state.validationStatePassword==="error"?"At least 8 characters  must contain at least 1 uppercase letter,1 lowercase letter,and 1 number":null}
                                  </HelpBlock>
                         </Col>
                     </FormGroup>
