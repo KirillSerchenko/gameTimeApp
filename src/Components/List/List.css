@@ -1,0 +1,45 @@
+#playerItem {
+    text-align: left;
+    margin: 1%;
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    opacity: 0.8;
+    width: 90%;
+    transition: opacity 1s ease-out,width 1s ease-out,text-align 1s ease-in-out,
+    background-color 0.5s ease-in,color 0.5s ease-in;
+
+}
+#playerItem:hover {
+    opacity: 1;
+    width: 97%;
+    text-align: center;
+    cursor: default;
+    background-color: red;
+    color:white;
+
+}
+#playersList {
+    font-size-adjust: 0.5;
+    margin: 5%;
+    overflow-y: auto;
+    height: 60vh;
+    -webkit-animation: fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+}
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
