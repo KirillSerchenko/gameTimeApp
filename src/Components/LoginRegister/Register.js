@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {PageHeader,HelpBlock} from 'react-bootstrap'
 import {withRouter} from "react-router-dom";
+import md5 from 'md5'
 import {
     Form,
     FormGroup,
@@ -25,8 +26,6 @@ class Register extends Component {
     }
 
 
-
-  
     //Changed functions
     EmailhandleChange = (e) =>{
         //Mail validation 
@@ -50,10 +49,9 @@ class Register extends Component {
     //submit handler
     submitHandler = () => {
         let usersCopy = this.props.mainstate.users
-        usersCopy.push({Email: this.state.EmailValue, Password: this.state.PasswordValue, Username: this.state.NameValue})
-        this
-            .props
-            .setSt({isRegistered: true, users: usersCopy})
+        usersCopy.push({Email: this.state.EmailValue, Password: md5(this.state.PasswordValue), Username: this.state.NameValue})
+        
+        this.props.setSt({isRegistered: true, users: usersCopy})
     }
 
     //check if exist user in local
@@ -76,9 +74,9 @@ class Register extends Component {
         if (this.state.NameValue.trim(" ") === ""
           || this.state.EmailValue.trim(" ") === ""
           || this.state.PasswordValue.trim(" ") === ""
-          ||this.state.validationStateEmail==="error"
-          ||this.state.validationStatePassword==="error") 
-            return true
+          || this.state.validationStateEmail==="error"
+          || this.state.validationStatePassword==="error") 
+        return true
     }
 
     render() {

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {PageHeader, FormGroup, FormControl, Button} from 'react-bootstrap'
 import {withRouter} from "react-router-dom";
+import {server} from '../../Server/serverApi'
 class RemovePlayer extends Component {
 
     state = {
@@ -33,11 +34,10 @@ class RemovePlayer extends Component {
     
 
     removeClicked = (value) => {
-        let temp = [...this.props.mainstate.players]
+        const temp = [...this.props.mainstate.players]
         const deletedPlayer=this.props.mainstate.players.find(el=>el.value===value)
         this.props.mainstate.players = [...temp.filter(player => player.value !== value.split(" ").join(""))]
-        fetch(`http://localhost:3000/players/${deletedPlayer.id}`,{ method: 'DELETE' }); 
-        
+        server(deletedPlayer,'deletePlayer')
         this.props
             .setSt({backdropVisibility: "visible", textOfBackdrop: "Succefully removed player!"})
         this
