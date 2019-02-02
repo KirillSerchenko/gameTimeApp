@@ -10,7 +10,7 @@ import MakeTeams from './MakeTeams/MakeTeams'
 import Login from './LoginRegister/Login'
 import Register from './LoginRegister/Register'
 import {withRouter, Switch, Route} from 'react-router-dom'
-
+import '../index.css'
 class App extends Component {
 
     state = {
@@ -26,7 +26,9 @@ class App extends Component {
    async getData(){
     const response = await fetch('http://localhost:3000/players');
     const json = await response.json();
-    this.setState({players:json})
+    const res = await fetch('http://localhost:3000/users');
+    const js = await res.json();
+    this.setState({players:json,users:js})
    }
     
     componentDidMount(){
@@ -44,8 +46,8 @@ class App extends Component {
                         path='/'
                         render=
                         {()=>{ if(this.state.isAuth) return <Menu mainstate={this.state} setSt={(element)=>this.setState(element)}/> 
-                        if(this.state.isRegistered) return <Login mainstate={this.state} setSt={(element)=>this.setState(element)} /> 
-                        else return <Register mainstate={this.state} setSt={(element)=>this.setState(element)}/>}}/>
+                        if(this.state.isRegistered) return <Login  mainstate={this.state} setSt={(element)=>this.setState(element)} /> 
+                        else return <Register  mainstate={this.state} setSt={(element)=>this.setState(element)}/>}}/>
 
                     <Route
                         exact
