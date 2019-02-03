@@ -11,6 +11,8 @@ import Login from './LoginRegister/Login'
 import Register from './LoginRegister/Register'
 import {withRouter, Switch, Route} from 'react-router-dom'
 import '../index.css'
+
+
 class App extends Component {
 
     state = {
@@ -41,6 +43,7 @@ class App extends Component {
                 {/*Route switch for pass to match screen*/}
                 {/*I am pass main state to every component and set state func to update the state continued we need to refactor this with using Redux!!!! */}
                 <Switch >
+                    
                     <Route
                         exact
                         path='/'
@@ -55,6 +58,7 @@ class App extends Component {
                         render={() => this.state.isAuth
                         ? <AddPlayer mainstate={this.state} setSt={(element) => this.setState(element)}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
+                    
                     <Route
                         exact
                         path='/RemovePlayer'
@@ -63,36 +67,42 @@ class App extends Component {
                                 mainstate={this.state}
                                 setSt={(element) => this.setState(element)}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
+                    
                     <Route
                         exact
                         path='/EditPlayer'
                         render={() => this.state.isAuth
                         ? <EditPlayer mainstate={this.state} setSt={(element) => this.setState(element)}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
+                    
                     <Route
                         exact
                         path='/Payment'
                         render={() => this.state.isAuth
                         ? <Payment mainstate={this.state}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
+                    
                     <Route
                         exact
                         path='/StartGame'
                         render={() => this.state.isAuth
                         ? <StartGame mainstate={this.state}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
+                    
                     <Route
                         exact
                         path='/MakeTeams'
                         render={() => this.state.isAuth
                         ? <MakeTeams mainstate={this.state}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
+                    
                     <Route
                         exact
                         path='/List'
                         render={() => this.state.isAuth
                         ? <List mainstate={this.state}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
+                
                 </Switch>
             </div>
         )

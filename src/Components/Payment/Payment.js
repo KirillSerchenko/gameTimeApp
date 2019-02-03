@@ -52,7 +52,7 @@ export default class Payment extends Component {
                         .props
                         .mainstate
                         .players
-                        .map((player, index) =>< PlayerPayment update = {(obj) => this.setState(obj)}
+                        .map((player, index) =>< PlayerPayment value={this.state.value} id={player.id} update = {(obj) => this.setState(obj)}
                         name = {player.value}
                         isPay ={player.isPay}
                         amount={player.amount}

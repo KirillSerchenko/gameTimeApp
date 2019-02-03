@@ -92,8 +92,8 @@ class Register extends Component {
                     <Switch
                         onChange={this.handleChange}
                         checked={this.state.checked}
-                        uncheckedIcon={<i style={{width:"1px"}} class="fas fa-sign-in-alt"></i>}
-                        checkedIcon={<i style={{width:"1px"}} class="fas fa-registered"></i>}
+                        uncheckedIcon={<i style={{width:"1px"}} className="fas fa-sign-in-alt"></i>}
+                        checkedIcon={<i style={{width:"1px"}} className="fas fa-registered"></i>}
                         id="normal-switch"
                     />
                     </span>

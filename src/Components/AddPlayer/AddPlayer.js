@@ -23,12 +23,6 @@ class AddPlayer extends Component {
     
     postDataOnServer =(value,rating) => server({value,rating,isPay:false,amount:0},'addPlayer') 
 
-       
-    
-
-    
-
-
     /*------------------------Add New Player when the user clicked on add button-----------*/
     addClicked = (value, rating) => {
         this.postDataOnServer(value,rating)
@@ -47,6 +41,8 @@ class AddPlayer extends Component {
             .push('/') //Pass to Home screen page
     }
     /*-----------------------------------END------------------------------------------------*/
+
+
 
     /*---------------------Render Function--------------------------------------------------*/
     render() {

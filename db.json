@@ -4,36 +4,36 @@
       "value": "sdsdsds",
       "rating": 2,
       "isPay": false,
-      "amount": 0,
+      "amount": 10,
       "id": 6
     },
     {
-      "value": "Kirill",
-      "rating": 5,
-      "isPay": false,
-      "amount": 0,
-      "id": 7
-    },
-    {
-      "value": "b",
+      "value": "ccccc",
       "rating": 1,
+      "id": 8,
       "isPay": false,
-      "amount": 0,
-      "id": 8
+      "amount": 10
     },
     {
       "value": "c",
       "rating": 1,
       "isPay": false,
-      "amount": 0,
+      "amount": 10,
       "id": 9
     },
     {
       "value": "z",
       "rating": 5,
       "isPay": false,
-      "amount": 0,
+      "amount": 20,
       "id": 10
+    },
+    {
+      "value": "kskss",
+      "rating": 3,
+      "isPay": false,
+      "amount": 0,
+      "id": 11
     }
   ],
   "users": [
@@ -48,6 +48,18 @@
       "Password": "69013f06f0f50f1cd8969db803ad6d00",
       "Username": "kss",
       "id": 2
+    },
+    {
+      "Email": "player@gmail.com",
+      "Password": "69013f06f0f50f1cd8969db803ad6d00",
+      "Username": "player1",
+      "id": 3
+    },
+    {
+      "Email": "Ks@gmail.com",
+      "Password": "69013f06f0f50f1cd8969db803ad6d00",
+      "Username": "ksss",
+      "id": 4
     }
   ]
 }

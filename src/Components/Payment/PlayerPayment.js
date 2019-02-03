@@ -8,10 +8,15 @@ export default class PlayerPayment extends Component {
         clicked: false
     }
 
-    add = () => {
+    add = (id) => {
         let temp = this.props.counter;
         const temp2 = !this.state.clicked;
-        console.log({amount:this.state.counter,isPay:temp2})
+        fetch(`http://localhost:3000/players/${id}`, {
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            method: 'PATCH',
+            body: JSON.stringify({amount:Number(this.props.value),isPay:temp2})
+        })
+        
         temp2
             ? temp = Number(temp) + Number(this.props.value)
             : temp = Number(temp) - Number(this.props.value)
@@ -31,7 +36,7 @@ export default class PlayerPayment extends Component {
                     bsStyle={this.state.clicked 
                     ? "success"
                     : "danger"}
-                    onClick={this.add}
+                    onClick={()=>this.add(this.props.id)}
                     id="paymentItem">{this.props.index + 1}.&nbsp;Name:{this.props.name}
                     <i
                         style={{

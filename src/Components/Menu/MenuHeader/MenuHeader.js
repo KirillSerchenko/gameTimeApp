@@ -30,7 +30,7 @@ class MenuHeader extends Component {
          }}/>
         
       <Image   src={green} style={{float: "right",display:"block",bottom:"20px"}}/>
-      <span style={{fontWeight:"normal",position:"relative",left:"3em",top:"-1em",float:"right",fontSize:"12px",color:"white",textShadow:"none",display:"block"}} >{this.props.username}</span>
+      <span style={{fontWeight:"normal",position:"relative",left:"3em",top:"-1em",float:"right",fontSize:"12px",color:"white",textShadow:"none",display:"block"}} >{this.props.username.currentUser}</span>
       <span style={{position:"relative",left:"0.7em"}}>Menu</span>
       </PageHeader>
      )

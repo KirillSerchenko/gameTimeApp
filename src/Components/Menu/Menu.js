@@ -8,7 +8,6 @@ import '../Menu/Menu.css'
 class Menu extends Component {
     state = {
         display: ["hidden","hidden","hidden","hidden","hidden","hidden","hidden"],
-        username:{}
     }
 
     showIcon = (num) => {
@@ -75,7 +74,9 @@ class Menu extends Component {
 
     componentDidMount(){
         const username=JSON.parse(localStorage.getItem("Users"))
-        this.setState({username,})
+        if(username){
+            this.props.setSt({currentUser:username.Username})
+        }
     }
 
     //------------------------------------------render function----------------------------------------------------------
@@ -83,7 +84,7 @@ class Menu extends Component {
         return (
             <div id="container">
                 <Backdrop mainstate={this.props.mainstate} setSt={this.props.setSt}/>
-                <MenuHeader setSt={(el)=>this.props.setSt(el)} username={this.state.username.Username} />
+                <MenuHeader setSt={(el)=>this.props.setSt(el)} username={this.props.mainstate} />
                 <Nav clicked={this.passToScreen} showIcon={this.showIcon} visibilityArray={this.state.display} hideIcon={this.hideIcon}/>
             </div>
 
