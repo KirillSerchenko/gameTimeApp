@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {PageHeader, FormGroup, FormControl, Button} from 'react-bootstrap'
 import {withRouter} from "react-router-dom"
 import './EditPlayer.css'
+import { server } from '../../Server/serverApi';
 
 class EditPlayer extends Component {
 
@@ -23,12 +24,19 @@ class EditPlayer extends Component {
             .mainstate
             .players
             .find(player => player.value === e.target.value.split(" ").join("")) //check if entered value empty
-        const validStatus = checkMatchPlayer === undefined
+        
+            const validStatus = checkMatchPlayer === undefined
             ? "error"
             : "success"
-        const checkVisibility = checkMatchPlayer === undefined
+        
+            const checkVisibility = checkMatchPlayer === undefined
             ? "hidden"
-            : "visible" //visibility of next form
+            : "visible"
+            console.log(checkMatchPlayer)
+            if(checkMatchPlayer)
+                this.setState({value3:checkMatchPlayer.rating})
+            
+        //visibility of next form
         // ---------------------------END------------------------------------
         // -------------update Current state-------------------------------------------
         this.setState({validationStatus: validStatus, value1: e.target.value, visibility1: checkVisibility})
@@ -40,41 +48,32 @@ class EditPlayer extends Component {
     // -------------------------END------------------------------------------------
     // ------------------------Change player logic----------------------------------
     changePlayer = () => {
-        let objIndex = this
+        const objIndex = this
             .props
             .mainstate
             .players
             .findIndex(player => player.value === this.state.value1);
-        let tempPlayers = [...this.props.mainstate.players]
         
-        fetch(`http://localhost:3000/players/${tempPlayers[objIndex].id}`, {
-            headers: { "Content-Type": "application/json; charset=utf-8" },
-            method: 'PUT',
-            body: JSON.stringify({
-                value:this.state.value2,
-                rating:this.state.value3
-            })
-        })
-
-
-        //Update object's name property.
+        const tempPlayers = [...this.props.mainstate.players]
+        const id=tempPlayers[objIndex].id
         tempPlayers[objIndex] = {
+            id,
             value: this.state.value2,
             rating: this.state.value3
         }
 
+        server(tempPlayers[objIndex],'editPlayer')
 
-        this
-            .props
-            .setSt({
-                backdropVisibility: "visible",
-                textOfBackdrop: "Successfully edited player!",
-                players: [...tempPlayers]
-            })
-        this
-            .props
-            .history
-            .push('/'); //Pass to home screen
+        
+
+
+        this.props.setSt({
+            backdropVisibility: "visible",
+            textOfBackdrop: "Successfully edited player!",
+            players: [...tempPlayers]
+        })
+        
+        this.props.history.push('/');
     }
     // -----------------------------------------------------------------------------
     // - ---

@@ -5,12 +5,14 @@
   "dependencies": {
     "all": "0.0.0",
     "guestbell-forms": "^2.0.39",
+    "md5": "^2.2.1",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-star-rating-component": "^1.4.1",
+    "react-switch": "^4.0.1",
     "react-textarea-autosize": "^7.1.0"
   },
   "scripts": {

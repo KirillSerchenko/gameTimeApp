@@ -1,116 +1,70 @@
 import React, {Component} from 'react'
 import {PageHeader} from 'react-bootstrap'
 import red from '../../Icons/red.png'
+import md5 from 'md5'
+import {Image} from 'react-bootstrap'
+import LoginForm from './Form/LoginForm'
+import Switch from "react-switch"
+import {withRouter} from "react-router-dom";
 import './Style.css'
-import {
-    Form,
-    FormGroup,
-    FormControl,
-    Col,
-    Checkbox,
-    Button,
-    ControlLabel,
-    Image
-} from 'react-bootstrap'
 
-export default class Login extends Component {
-
+class Login extends Component {
     state = {
         PasswordValue: "", //Password handler
         NameValue: "", //Username handler
         CheckBoxValue: false, //Checkbox handler
-        signInDisabled: false //disable button
+        signInDisabled: false, //disable button
+        checked:true
     }
-
-    // -------------------On change values
-    // functions--------------------------------------------------------
     EmailhandleChange = (e) => this.setState({EmailValue: e.target.value})
     PasswordhandleChange = (e) => this.setState({PasswordValue: e.target.value})
-    NamehandleChange = (e) => this.setState({NameValue: e.target.value})
-    clickedCheck = () => {
-        let temp = !this.state.CheckBoxValue
-        this.setState({CheckBoxValue: temp})
-    }
-    //------------------------------------------------------------------------------
-    //---------- fires when button clicked
+    NamehandleChange = (e) => {
+        console.log("inChange")
+        this.setState({NameValue: e.target.value})}
+    clickedCheck = () => this.setState({CheckBoxValue:!this.state.CheckBoxValue})
     signinHandler = () => {
         if (this.state.CheckBoxValue === true) { //Set item to local storage if clicked remember me
-            localStorage.setItem(`Users`, JSON.stringify({Username: this.state.NameValue, Password: this.state.PasswordValue}))
-            this
-                .props
-                .setSt({isAuth: true})
+            localStorage.setItem(`Users`, JSON.stringify({Username: this.state.NameValue, Password:md5(this.state.PasswordValue) }))
+            this.props.setSt({isAuth: true})
         }
-        this
-            .props
-            .setSt({isAuth: true})
+        this.props.setSt({isAuth: true})
     }
-    // ----------------------------Render
-    // function---------------------------------------------
+
+
+    handleChange=(checked)=> {
+        this.props.setSt({isRegistered:checked})
+        
+    }
+
     render() {
         return (
-            <div id="container">
-                {/*Page Header--------------------------------------------------------*/}
+            <div id="container" className="scale-in-ver-center">
                 <PageHeader className="tracking-in-expand-fwd-top" id="header">
-                    <Image
-                        src={red}
-                        style={{
-                        float: "right"
-                    }}/>
+                <span style={{float:"left"}}>    
+                    <Switch
+                        onChange={this.handleChange}
+                        checked={this.state.checked}
+                        uncheckedIcon={<i style={{color:'#2B143A',width:"1px"}} class="fas fa-sign-in-alt"></i>}
+                        checkedIcon={<i style={{color:'#2B143A',width:"1px"}} class="fas fa-registered"></i>}
+                        id="normal-switch"
+                    />
+                    </span>
+                    <Image src={red}style={{float: "right"}}/>
                     Login
                 </PageHeader>
 
-                {/*---------------------------Form--------------------------------------------------------*/}
-                <Form id="RegisterForm" horizontal>
-                    {/*---------------------------UserName--------------------------------------------------------*/}
-                    <FormGroup >
-                        <Col componentClass={ControlLabel} sm={2}></Col>
-                        <Col sm={8}>
-                            <FormControl
-                                id="inputLUsername"
-                                type="text"
-                                autoFocus
-                                placeholder="Enter Username"
-                                value={this.state.NameValue}
-                                onChange={(e) => this.NamehandleChange(e)}/>
-                        </Col>
-                    </FormGroup>
-                    {/*---------------------------Password--------------------------------------------------------*/}
-                    <FormGroup >
-                        <Col componentClass={ControlLabel} sm={2}></Col>
-                        <Col sm={8}>
-                            <FormControl
-                                id="inputLPassword"
-                                type="password"
-                                placeholder="Password"
-                                value={this.state.PasswordValue}
-                                onChange={(e) => this.PasswordhandleChange(e)}/>
-                        </Col>
-                    </FormGroup>
-                    {/*---------------------------Remember-Me-Check-Box--------------------------------------------------------*/}
-                    <FormGroup>
-                        <Col smOffset={2} sm={8}>
-                            <Checkbox onClick={this.clickedCheck}>Remember me</Checkbox>
-                        </Col>
-                    </FormGroup>
-                    {/*---------------------------Button with offset--------------------------------------------------------*/}
-                    <FormGroup>
-                        <Col smOffset={2} sm={8}>
-                            <Button
-                                className={this
-                                .props
-                                .mainstate
-                                .users
-                                .some(user => user.Username === this.state.NameValue && user.Password === this.state.PasswordValue)
-                                ? "jello-diagonal-2"
-                                : null}
-                                type="submit"
-                                bsStyle="primary"
-                                onClick={this.signinHandler}
-                                disabled={!(this.props.mainstate.users.some(user => user.Username === this.state.NameValue && user.Password === this.state.PasswordValue))}>Sign in</Button>
-                        </Col>
-                    </FormGroup>
-                </Form>
+                <LoginForm 
+                     usernameValue={this.state.NameValue}
+                     usernameChange={this.NamehandleChange}
+                     passwordValue={this.state.PasswordValue}
+                     passwordChange={this.PasswordhandleChange}
+                     rememberMe={this.clickedCheck}
+                     users={this.props.mainstate.users}
+                     signIn={this.signinHandler}
+                />
             </div>
         )
     }
 }
+
+export default withRouter(Login)

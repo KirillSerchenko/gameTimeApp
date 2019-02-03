@@ -1,32 +1,53 @@
 {
   "players": [
     {
-      "value": "a",
-      "rating": 5,
-      "isPay": true,
-      "amount": 20,
-      "id": 1
-    },
-    {
-      "value": "z",
-      "rating": 3,
+      "value": "sdsdsds",
+      "rating": 2,
       "isPay": false,
       "amount": 0,
-      "id": 2
-    },
-    {
-      "value": "q",
-      "rating": 1,
-      "isPay": false,
-      "amount": 0,
-      "id": 3
+      "id": 6
     },
     {
       "value": "Kirill",
-      "rating": 3,
+      "rating": 5,
       "isPay": false,
       "amount": 0,
-      "id": 4
+      "id": 7
+    },
+    {
+      "value": "b",
+      "rating": 1,
+      "isPay": false,
+      "amount": 0,
+      "id": 8
+    },
+    {
+      "value": "c",
+      "rating": 1,
+      "isPay": false,
+      "amount": 0,
+      "id": 9
+    },
+    {
+      "value": "z",
+      "rating": 5,
+      "isPay": false,
+      "amount": 0,
+      "id": 10
+    }
+  ],
+  "users": [
+    {
+      "Email": "ks@gmail.com",
+      "Password": "69013f06f0f50f1cd8969db803ad6d00",
+      "Username": "ks",
+      "id": 1
+    },
+    {
+      "Email": "ks@gmail.com",
+      "Password": "69013f06f0f50f1cd8969db803ad6d00",
+      "Username": "kss",
+      "id": 2
     }
   ]
 }

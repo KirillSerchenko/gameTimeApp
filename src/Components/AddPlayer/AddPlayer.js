@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {withRouter} from "react-router-dom";
 import {PageHeader, FormGroup, Button, FormControl} from 'react-bootstrap'
 import StarRatingComponent from 'react-star-rating-component';
+import {server} from '../../Server/serverApi'
 import './AddPlayer.css'
 
 class AddPlayer extends Component {
@@ -19,24 +20,11 @@ class AddPlayer extends Component {
     /*-----------------------Change value of stars rating----------------*/
     onStarClick = (nextValue) => this.setState({rating: nextValue});
     /*-----------------------END----------------*/
-    postDataOnServer =(value,rating) => {
-        let url = 'http://localhost:3000/players';
-        let data = {
-            value,
-            rating,
-            isPay:false,
-            amount:0
-        }
+    
+    postDataOnServer =(value,rating) => server({value,rating,isPay:false,amount:0},'addPlayer') 
 
-        fetch(url,{
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(data), // data can be `string` or {object}!
-            headers: {'Content-Type': 'application/json'}
-            })
-            .then(res => res.json())
-            .then(response => console.log('Success:', JSON.stringify(response)))
-            .catch(error => console.error('Error:', error));
-    }
+       
+    
 
     
 
