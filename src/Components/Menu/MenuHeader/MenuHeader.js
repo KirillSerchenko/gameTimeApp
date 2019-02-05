@@ -21,12 +21,13 @@ class MenuHeader extends Component {
       <Image
          src={logout}
          onClick={this.clicked}
+         className="signOut"
          style={{
-         cursor:"pointer",
-         padding:"5px",
-         width:"40px",
-         float: "left",
-         bottom:"20px"
+            cursor:"pointer",
+            padding:"5px",
+            width:"40px",
+            float: "left",
+            bottom:"20px"
          }}/>
         
       <Image   src={green} style={{float: "right",display:"block",bottom:"20px"}}/>

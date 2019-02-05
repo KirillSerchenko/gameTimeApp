@@ -1,5 +1,68 @@
 #playersTable {
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 10px;
+  z-index: 1;
+  position: fixed ;
+  top:9em;
+  background-color: aliceblue;
+  padding:20px;
+  opacity: 0.5;
+  transition:opacity 1s ease-out;
+}
+
+#playersTable:hover{
+opacity:1;
+}
+th{
+    text-align: center;
+}
+.pitch{
+    margin-top:-1em;
+    width:100vw;
+    z-index:-1;
+}
+
+.team1{
+    color:red;
+    opacity:0.4;
+    transition:transform 1s ease-out;
+}
+
+.team2{
+    color:blue;
+    opacity:0.4;
+    transition:transform 1s ease-out;
+}
+.team3{
+    color:yellow;
+    opacity:0.4;
+    transition:transform 1s ease-out;
+}
+.team4{
+    color:black;
+    opacity:0.4;
+    transition:transform 1s ease-out;
+}
+
+td{
+    text-overflow: ellipsis;
+}
+.team1:hover{
+    color:red;
+    opacity:1;
+    transform:scale(1.2);
+}
+
+.team2:hover{
+    color:blue;
+    opacity:1;
+    transform:scale(1.2);
+}
+.team3:hover{
+    color:yellow;
+    opacity:1;
+    transform:scale(1.2);
+}
+.team4:hover{
+    color:black;
+    opacity:1;
+    transform:scale(1.2);
 }

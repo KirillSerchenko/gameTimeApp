@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Nav from './MenuNavs/MenuNavs'
 import {withRouter} from "react-router-dom";
-import runPlayer from '../../Images/runPlayer.gif'
+import promo from '../../Images/promo.gif'
 import {Image} from 'react-bootstrap'
 import Backdrop from './Backdrop'
 import  MenuHeader from './MenuHeader/MenuHeader'
@@ -94,8 +94,8 @@ class Menu extends Component {
             <div id="container">
                 <Backdrop mainstate={this.props.mainstate} setSt={this.props.setSt}/>
                 <MenuHeader setSt={(el)=>this.props.setSt(el)} username={this.props.mainstate} />
+                <Image className={"scale-out-horizontal"} id="promo" src={promo} />
                 <Nav clicked={this.passToScreen} showIcon={this.showIcon} visibilityArray={this.state.display} hideIcon={this.hideIcon}/>
-                <Image className="slide-in-bck-center" id="runPlayer" src={runPlayer} />
             </div>
 
         )

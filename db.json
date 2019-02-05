@@ -1,32 +1,18 @@
 {
   "players": [
     {
-      "value": "FF",
-      "rating": "2",
-      "isPay": true,
-      "amount": 10,
-      "id": 9
-    },
-    {
-      "value": "Serchenko",
-      "rating": 5,
-      "isPay": true,
-      "amount": 10,
-      "id": 12
-    },
-    {
-      "value": "Shalom",
-      "rating": "5",
-      "isPay": true,
-      "amount": 10,
-      "id": 17
-    },
-    {
-      "value": "srfsfssf",
-      "rating": 3,
+      "value": "zzzz",
+      "rating": 4,
       "isPay": false,
       "amount": 0,
-      "id": 18
+      "id": 1
+    },
+    {
+      "value": "xxxxx",
+      "rating": 2,
+      "isPay": false,
+      "amount": 0,
+      "id": 2
     }
   ],
   "users": [
@@ -65,6 +51,12 @@
       "Password": "69013f06f0f50f1cd8969db803ad6d00",
       "Username": "NEWU",
       "id": 6
+    },
+    {
+      "Email": "ks@gmail.com",
+      "Password": "69013f06f0f50f1cd8969db803ad6d00",
+      "Username": "Kirill",
+      "id": 7
     }
   ]
 }

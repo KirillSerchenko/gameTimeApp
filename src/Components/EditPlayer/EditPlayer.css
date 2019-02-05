@@ -1,9 +1,7 @@
-#kinputEdit {
-    color: red;
-    border-radius: 50px;
+
+#inputEdit {
     text-align: center;
     margin: 10px;
-    width: 20%;
 }
 
 .scale-in-ver-center {
