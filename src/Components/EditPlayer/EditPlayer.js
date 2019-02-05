@@ -42,10 +42,11 @@ class EditPlayer extends Component {
         this.setState({validationStatus: validStatus, value1: e.target.value, visibility1: checkVisibility})
     }
     // ----------------------------END------------------------------------
-    // ----------------Change value of second
-    // input-------------------------------------
+    
+    // ----------------Change value of second input-------------------------------------
     handleChange2 = (e) => this.setState({value2: e.target.value})
     // -------------------------END------------------------------------------------
+    
     // ------------------------Change player logic----------------------------------
     changePlayer = () => {
         const objIndex = this
@@ -55,30 +56,27 @@ class EditPlayer extends Component {
             .findIndex(player => player.value === this.state.value1);
         
         const tempPlayers = [...this.props.mainstate.players]
-        const id=tempPlayers[objIndex].id
+        
+        
         tempPlayers[objIndex] = {
-            id,
+            id:tempPlayers[objIndex].id,
             value: this.state.value2,
             rating: this.state.value3,
             isPay:tempPlayers[objIndex].isPay,
             amount:tempPlayers[objIndex].amount
         }
 
-        server(tempPlayers[objIndex],'editPlayer')
-
-        
-
-
+        server(tempPlayers[objIndex],'editPlayer')//Update db
+        //Show backdrop window
         this.props.setSt({
             backdropVisibility: "visible",
             textOfBackdrop: "Successfully edited player!",
-            players: [...tempPlayers]
+            players: [...tempPlayers]//update inner players array
         })
         
         this.props.history.push('/');
     }
-    // -----------------------------------------------------------------------------
-    // - ---
+
 
     /*Change Rating of Player*/
     numChange = (e) => this.setState({value3: e.target.value})
