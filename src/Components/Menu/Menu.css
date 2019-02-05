@@ -163,6 +163,11 @@
     }
 }
 
+#runPlayer{
+    visibility: hidden;
+    display:none;
+}
+
 #SuccessMessage {
     border: 2px solid black;
     position: relative;
@@ -224,7 +229,46 @@
 }
 
 /* Desktops and laptops ----------- */
-@media only screen and (min-width : 1224px) {
+@media only screen and (min-width : 1224px) { 
+    #navBtns{
+        display:inline-grid;
+        grid-template-columns: auto auto auto auto auto auto auto;
+        justify-content: space-between;
+        margin-top:5em;
+    }
+
+    
+#runPlayer{
+    display:block;
+    visibility:visible;
+    width:15em;
+    margin:3em auto;
+    border-radius: 50%;
+    transition:border-radius 1s linear,transform 1s linear;
+}
+
+.btn-success {
+    box-shadow: 1px 2px 3px lightgreen;
+    margin-bottom: 15px;
+    margin-left:10px;
+    opacity: 0.5;
+    transition: opacity ease-in 0.5s,background-color ease-in-out 0.5s,transform ease-in-out 0.7s;
+    width:10em;
+    height:10em;
+    font-size: 15px;
+}
+.btn-success:hover {
+    opacity: 1;
+    background-color: #010131;
+    color:lightgreen;
+    transform: scale(1.1);
+    border:1px solid white;   
+}
+    
+#runPlayer:hover{
+    transform:scale(1.2);
+    border-radius: 0%;    
+}   
     #SuccessMessage {
         width: 40%;
     }

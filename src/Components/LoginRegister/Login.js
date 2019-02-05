@@ -26,16 +26,14 @@ class Login extends Component {
     
     clickedCheck = () => this.setState({CheckBoxValue:!this.state.CheckBoxValue})
     
-    signinHandler = () => { 
-        
+    signinHandler = (user) => {   
         if (this.state.CheckBoxValue === true) { //Set item to local storage if clicked remember me
-            localStorage.setItem(`Users`, JSON.stringify({Username: this.state.NameValue, Password:md5(this.state.PasswordValue) }))
-            this.props.setSt({currentUser:this.state.NameValue,isAuth: true})
+            localStorage.setItem(`Users`, JSON.stringify(user))
+            this.props.setSt({currentUser:user,isAuth: true})
         }
 
         else{
-            const currentUser =this.props.mainstate.users.find(user => user.Username ===this.state.NameValue && user.Password === md5(this.state.PasswordValue))
-            this.props.setSt({currentUser:currentUser.Username,isAuth: true}) 
+            this.props.setSt({currentUser:user,isAuth: true}) 
         }
     }
 

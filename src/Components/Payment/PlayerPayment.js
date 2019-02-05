@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {ListGroupItem} from 'react-bootstrap'
+import {server} from '../../Server/serverApi'
 
 export default class PlayerPayment extends Component {
 
@@ -11,15 +12,13 @@ export default class PlayerPayment extends Component {
     add = (id) => {
         let temp = this.props.counter;
         const temp2 = !this.state.clicked;
-        fetch(`http://localhost:3000/players/${id}`, {
-            headers: { "Content-Type": "application/json; charset=utf-8" },
-            method: 'PATCH',
-            body: JSON.stringify({amount:Number(this.props.value),isPay:temp2})
-        })
+       
+        server({id,amount:Number(this.props.value),isPay:temp2},'editPayment')
         
         temp2
             ? temp = Number(temp) + Number(this.props.value)
             : temp = Number(temp) - Number(this.props.value)
+        
         this.setState({clicked: temp2})
         this.props.update({counter: Number(temp)});
     }

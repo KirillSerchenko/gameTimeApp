@@ -10,6 +10,7 @@ import MakeTeams from './MakeTeams/MakeTeams'
 import Login from './LoginRegister/Login'
 import Register from './LoginRegister/Register'
 import {withRouter, Switch, Route} from 'react-router-dom'
+import {server} from '../Server/serverApi'
 import '../index.css'
 
 
@@ -26,12 +27,9 @@ class App extends Component {
     }
 
    async getData(){
-    const response = await fetch('http://localhost:3000/players');
-    const json = await response.json();
-    const res = await fetch('http://localhost:3000/users');
-    const js = await res.json();
-    this.setState({players:json,users:js})
-   }
+       const users= await server(null,'getUsersDb')
+       this.setState({users})
+    }
     
     componentDidMount(){
         this.getData()
@@ -42,7 +40,7 @@ class App extends Component {
             <div>
                 {/*Route switch for pass to match screen*/}
                 {/*I am pass main state to every component and set state func to update the state continued we need to refactor this with using Redux!!!! */}
-                <Switch >
+                <Switch >              
                     
                     <Route
                         exact
@@ -51,13 +49,14 @@ class App extends Component {
                         {()=>{ if(this.state.isAuth) return <Menu mainstate={this.state} setSt={(element)=>this.setState(element)}/> 
                         if(this.state.isRegistered) return <Login  mainstate={this.state} setSt={(element)=>this.setState(element)} /> 
                         else return <Register  mainstate={this.state} setSt={(element)=>this.setState(element)}/>}}/>
-
+                    
                     <Route
                         exact
                         path='/AddPlayer'
                         render={() => this.state.isAuth
                         ? <AddPlayer mainstate={this.state} setSt={(element) => this.setState(element)}/>
                         : <Register mainstate={this.state} setSt={(element) => this.setState(element)}/>}/>
+                    
                     
                     <Route
                         exact

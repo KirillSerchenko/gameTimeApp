@@ -17,7 +17,6 @@ class RemovePlayer extends Component {
             .mainstate
             .players
             .find(player => player.value === e.target.value.split(" ").join(""))
-        console.log(check);
         let x = check === undefined
             ? "error"
             : "success"
@@ -29,9 +28,6 @@ class RemovePlayer extends Component {
             value: e.target.value
         })
     }
-
-   
-    
 
     removeClicked = (value) => {
         const temp = [...this.props.mainstate.players]

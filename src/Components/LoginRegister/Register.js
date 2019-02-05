@@ -61,8 +61,8 @@ class Register extends Component {
     //check if exist user in local
     componentDidMount = () => {
         const x = localStorage.getItem(`Users`)
-        if (x != null) {this.props.setSt({isAuth: true})} //Check if exist user in local storage
-        this.props.history.push("/")
+        if (x) {this.props.setSt({currentUser:x,isAuth: true})} //Check if exist user in local storage
+            this.props.history.push("/")
     }
 
     //check validation!

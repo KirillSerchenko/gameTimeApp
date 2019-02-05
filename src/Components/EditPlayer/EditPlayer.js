@@ -59,7 +59,9 @@ class EditPlayer extends Component {
         tempPlayers[objIndex] = {
             id,
             value: this.state.value2,
-            rating: this.state.value3
+            rating: this.state.value3,
+            isPay:tempPlayers[objIndex].isPay,
+            amount:tempPlayers[objIndex].amount
         }
 
         server(tempPlayers[objIndex],'editPlayer')

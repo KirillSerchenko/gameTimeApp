@@ -1,23 +1,23 @@
 #playerItem {
     text-align: left;
     margin: 1%;
-    color: red;
+    color: #010131;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    opacity: 0.8;
+    opacity: 0.7;
     width: 90%;
-    transition: opacity 1s ease-out,width 1s ease-out,text-align 1s ease-in-out,
-    background-color 0.5s ease-in,color 0.5s ease-in;
-
+    transition: opacity 1s ease-out,width 1s ease-out,text-align 1s ease-in-out,background-color 0.5s ease-in,color 0.5s ease-in;
 }
+
+
 #playerItem:hover {
     opacity: 1;
     width: 97%;
     text-align: center;
     cursor: default;
-    background-color: red;
-    color:white;
-
+    background-color: #010131;
+    color:lightgreen;
 }
+
 #playersList {
     font-size-adjust: 0.5;
     margin: 5%;

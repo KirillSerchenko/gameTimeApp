@@ -6,7 +6,7 @@ class SigninButton extends Component {
 
    
     render () {
-       const check=this.props.users.some(user => user.Username === this.props.usernameValue && user.Password === md5(this.props.passwordValue))
+       const check=this.props.users.find(user => user.Username === this.props.usernameValue && user.Password === md5(this.props.passwordValue))
         
        return (
             <FormGroup>
@@ -15,7 +15,7 @@ class SigninButton extends Component {
                         className={check?"blink-1":null}
                         type="submit"
                         bsStyle="primary"
-                        onClick={this.props.signIn}
+                        onClick={()=>this.props.signIn(check)}
                         disabled={!check}>Sign in
                     </Button>
                 </Col>

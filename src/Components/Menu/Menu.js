@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import Nav from './MenuNavs/MenuNavs'
 import {withRouter} from "react-router-dom";
+import runPlayer from '../../Images/runPlayer.gif'
+import {Image} from 'react-bootstrap'
 import Backdrop from './Backdrop'
 import  MenuHeader from './MenuHeader/MenuHeader'
+import {server} from '../../Server/serverApi'
 import '../Menu/Menu.css'
 
 class Menu extends Component {
@@ -72,10 +75,16 @@ class Menu extends Component {
         }
     }
 
+    async getData(){
+        const players= await server(null,'getPlayersDb')
+        this.props.setSt({players})
+     }
+
     componentDidMount(){
+        this.getData()
         const username=JSON.parse(localStorage.getItem("Users"))
         if(username){
-            this.props.setSt({currentUser:username.Username})
+            this.props.setSt({currentUser:username})
         }
     }
 
@@ -86,6 +95,7 @@ class Menu extends Component {
                 <Backdrop mainstate={this.props.mainstate} setSt={this.props.setSt}/>
                 <MenuHeader setSt={(el)=>this.props.setSt(el)} username={this.props.mainstate} />
                 <Nav clicked={this.passToScreen} showIcon={this.showIcon} visibilityArray={this.state.display} hideIcon={this.hideIcon}/>
+                <Image className="slide-in-bck-center" id="runPlayer" src={runPlayer} />
             </div>
 
         )

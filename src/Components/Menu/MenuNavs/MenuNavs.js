@@ -44,7 +44,7 @@ render() {
 ]
     
     return (
-        <ButtonGroup className="bounce-in-top" vertical>
+        <ButtonGroup id="navBtns" className="bounce-in-top" vertical>
             {
                 navButtonsConfig.map((config,index)=>
                     <div key={index*index*index}>

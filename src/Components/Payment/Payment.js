@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {PageHeader, ListGroup} from 'react-bootstrap'
+import {PageHeader} from 'react-bootstrap'
 import {FormGroup, InputGroup, FormControl} from 'react-bootstrap'
-import PlayerPayment from './PlayerPayment'
+import PaymentsList from './PaymentsList/PaymentsList'
+
 import './Payment.css'
 
 export default class Payment extends Component {
@@ -47,19 +48,16 @@ export default class Payment extends Component {
                 </FormGroup>
                 {/* {---------------------END----------------------------------------------------------} */}
                 {/* {-----------------------------List of Players--------------------------------------} */}
-                <ListGroup id="paymentList">
-                    {this
-                        .props
-                        .mainstate
-                        .players
-                        .map((player, index) =>< PlayerPayment value={this.state.value} id={player.id} update = {(obj) => this.setState(obj)}
-                        name = {player.value}
-                        isPay ={player.isPay}
-                        amount={player.amount}
-                        index = {index}
-                        counter = {this.state.counter}
-                        value = {this.state.value} />)}
-                </ListGroup>; {/* {-----------------------------END of list--------------------------------------} */}
+                
+                <PaymentsList 
+                    players={this.props.mainstate.players}
+                    value={this.state.value}
+                    update={(obj) => this.setState(obj)}
+                    counter={this.state.counter}
+                />
+            
+            
+            {/* {-----------------------------END of list--------------------------------------} */}
             </div>
         )
     }
