@@ -16,7 +16,8 @@ export default class MakeTeams extends Component {
    
 
     render() {
-
+// TODO: generate the table dynamically for each team for each player in team
+//TODO: format your code
         return (
             <div id="container">
                 <PageHeader
